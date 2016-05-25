@@ -24,7 +24,32 @@
     </Window.Resources>
 
     <Grid>
-        <ContentControl Content = "{Binding CurrentView}"/>
-    </Grid>
-    
+        <Grid.RowDefinitions>
+            <RowDefinition Height = "Auto" />
+            <RowDefinition Height = "*" />
+        </Grid.RowDefinitions>
+
+        <Grid x:Name = "NavBar">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width = "*" />
+                <ColumnDefinition Width = "*" />
+                <ColumnDefinition Width = "*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Content = "General" 
+            Command = "{Binding NavCommand}"
+            CommandParameter = "general" 
+            Grid.Column = "0" />
+
+            <Button Content = "Settings" 
+            Command = "{Binding NavCommand}" 
+            CommandParameter = "settings" 
+            Grid.Column = "2" />
+        </Grid>
+
+        <Grid x:Name = "MainContent" Grid.Row = "1">
+            <ContentControl Content = "{Binding CurrentViewModel}" />
+        </Grid>
+        
+    </Grid>    
 </Window>

@@ -3,10 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VRVControl.ViewModel;
 
 namespace VRVControl
 {
-    class MainWindowViewModel
+    class MainWindowViewModel : BindableBase
     {
+        private GeneralViewModel _generalViewModel = new GeneralViewModel();
+        private SettingsViewModel _settingsViewModel = new SettingsViewModel();
+
+        public MainWindowViewModel()
+        {
+            NavCommand = new RelayCommand<string>(OnNav);
+        }
+
+        private BindableBase _CurrentViewModel;      
+
+        public BindableBase CurrentViewModel
+        {
+            get { return _CurrentViewModel; }
+            set { SetProperty(ref _CurrentViewModel, value); }
+        }
+
+        public RelayCommand<string> NavCommand { get; private set; }
+
+        private void OnNav(string destination)
+        {
+
+            switch (destination)
+            {
+                case "general":
+                    CurrentViewModel = _generalViewModel;
+                    break;
+                case "settings":
+                default:
+                    CurrentViewModel = _settingsViewModel;
+                    break;
+            }
+        }
     }
 }

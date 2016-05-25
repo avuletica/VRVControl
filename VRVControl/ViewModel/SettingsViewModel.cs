@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VRVControl.ViewModel
 {
-    class SettingsViewModel
+    class SettingsViewModel :BindableBase
     {
     }
 }
