@@ -7,7 +7,7 @@
         xmlns:views = "clr-namespace:VRVControl.View" 
         xmlns:viewModels = "clr-namespace:VRVControl.ViewModel" 
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="189.831" Width="433.644">
 
     <Window.DataContext>
         <local:MainWindowViewModel/>
@@ -24,32 +24,35 @@
     </Window.Resources>
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height = "Auto" />
-            <RowDefinition Height = "*" />
-        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width = "100" />
+            <ColumnDefinition Width = "*" />
+        </Grid.ColumnDefinitions>
 
-        <Grid x:Name = "NavBar">
+        <Grid x:Name = "NavBar"  VerticalAlignment="Top" RenderTransformOrigin="0.504,0.715">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width = "*" />
-                <ColumnDefinition Width = "*" />
-                <ColumnDefinition Width = "*" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="221.136"/>
             </Grid.ColumnDefinitions>
 
             <Button Content = "General" 
             Command = "{Binding NavCommand}"
             CommandParameter = "general" 
-            Grid.Column = "0" />
+            Grid.Row = "0" />
 
             <Button Content = "Settings" 
             Command = "{Binding NavCommand}" 
             CommandParameter = "settings" 
-            Grid.Column = "2" />
+            Grid.Row = "1" />
         </Grid>
 
-        <Grid x:Name = "MainContent" Grid.Row = "1">
+        <Grid x:Name = "MainContent" Grid.Column = "1">
             <ContentControl Content = "{Binding CurrentViewModel}" />
         </Grid>
-        
-    </Grid>    
+
+    </Grid>
 </Window>
