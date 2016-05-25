@@ -7,7 +7,7 @@
         xmlns:views = "clr-namespace:VRVControl.View" 
         xmlns:viewModels = "clr-namespace:VRVControl.ViewModel" 
         mc:Ignorable="d"
-        Title="MainWindow" Height="189.831" Width="433.644">
+        Title="MainWindow" Height="217.625" Width="348.202">
 
     <Window.DataContext>
         <local:MainWindowViewModel/>

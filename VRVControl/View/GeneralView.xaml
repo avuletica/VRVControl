@@ -7,6 +7,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <TextBox Text="GENERAL page here!"></TextBox>
+        <StackPanel VerticalAlignment="Top" Width="132" Height="159">
+            <RepeatButton Width = "120" Delay="500" Interval="100" 
+        		Click="bntIncVol" Content="Volume Up" Margin="3,0" Focusable="False"/>
+            <RepeatButton Width = "120" DockPanel.Dock="Top" Delay="500" Interval="100" 
+        		Click="bntDecVol" Content="Volume Down" Focusable="False"/>
+            <RepeatButton Width = "120" Delay="500" Interval="100" 
+            	Click="btnMute" Content="Mute" Margin="3,0" Focusable="False"/>
+            <Button x:Name="btnStartVoiceControl" Content="Enable Voice Control" Margin="0 20 0 0" Click="btnStartVoiceControl_Click"  Width="120"/>
+            <Button x:Name="btnStopVoiceControl" Content="Disable Voice Control"  Width="120" Click="btnStopVoiceControl_Click" IsEnabled="False"/>
+            <Slider x:Name="slider" VerticalAlignment="Top" Width="100" Margin="0 10 0 0" ValueChanged="slider_ValueChanged" Maximum="1" LargeChange="0.01"/>
+        </StackPanel>
     </Grid>
 </UserControl>
