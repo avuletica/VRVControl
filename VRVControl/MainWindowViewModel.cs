@@ -15,6 +15,7 @@ namespace VRVControl
         public MainWindowViewModel()
         {
             NavCommand = new RelayCommand<string>(OnNav);
+            CurrentViewModel = _generalViewModel;
         }
 
         private BindableBase _CurrentViewModel;      

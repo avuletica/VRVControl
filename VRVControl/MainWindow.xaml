@@ -7,11 +7,18 @@
         xmlns:views = "clr-namespace:VRVControl.View" 
         xmlns:viewModels = "clr-namespace:VRVControl.ViewModel" 
         mc:Ignorable="d"
-        Title="MainWindow" Height="217.625" Width="348.202">
+        Title="MainWindow" Height="350" Width="430">
 
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
+
+
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding KeyBind}" Modifiers="Control" Key="S"/>
+        <KeyBinding Command="{Binding KeyBind}" Modifiers="Control" Key="D"/>
+    </Window.InputBindings>
+
 
     <Window.Resources>
         <DataTemplate DataType = "{x:Type viewModels:GeneralViewModel}">
@@ -29,14 +36,14 @@
             <ColumnDefinition Width = "*" />
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name = "NavBar"  VerticalAlignment="Top" RenderTransformOrigin="0.504,0.715">
+        <Grid x:Name = "NavBar"  VerticalAlignment="Top">
             <Grid.RowDefinitions>
-                <RowDefinition Height="30" />
-                <RowDefinition Height="30" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100" />
-                <ColumnDefinition Width="221.136"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <Button Content = "General" 

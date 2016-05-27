@@ -38,7 +38,7 @@ namespace VRVControl.View
         private void GeneralView_Loaded(object sender, RoutedEventArgs e)
         {
             MMDevice defaultDevice = devEnum.GetDefaultAudioEndpoint(DataFlow.Render, Role.Multimedia);
-            slider.Value = defaultDevice.AudioEndpointVolume.MasterVolumeLevelScalar;
+            volumeSlider.Value = defaultDevice.AudioEndpointVolume.MasterVolumeLevelScalar;
         }
 
         private void Mute()
@@ -54,14 +54,16 @@ namespace VRVControl.View
         {
             MMDevice defaultDevice = devEnum.GetDefaultAudioEndpoint(DataFlow.Render, Role.Multimedia);
             defaultDevice.AudioEndpointVolume.VolumeStepDown();
-            slider.Value = defaultDevice.AudioEndpointVolume.MasterVolumeLevelScalar;
+            volumeSlider.Value = defaultDevice.AudioEndpointVolume.MasterVolumeLevelScalar;
+            volumeProgressBar.Value = volumeSlider.Value;
         }
 
         private void VolUp()
         {
             MMDevice defaultDevice = devEnum.GetDefaultAudioEndpoint(DataFlow.Render, Role.Multimedia);
             defaultDevice.AudioEndpointVolume.VolumeStepUp();
-            slider.Value = defaultDevice.AudioEndpointVolume.MasterVolumeLevelScalar;
+            volumeSlider.Value = defaultDevice.AudioEndpointVolume.MasterVolumeLevelScalar;
+            volumeProgressBar.Value = volumeSlider.Value;
         }
 
         void bntIncVol(object sender, RoutedEventArgs e)
@@ -134,7 +136,8 @@ namespace VRVControl.View
         private void slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             MMDevice defaultDevice = devEnum.GetDefaultAudioEndpoint(DataFlow.Render, Role.Multimedia);
-            defaultDevice.AudioEndpointVolume.MasterVolumeLevelScalar = (float)slider.Value;
+            defaultDevice.AudioEndpointVolume.MasterVolumeLevelScalar = (float)volumeSlider.Value;
+            volumeProgressBar.Value = volumeSlider.Value;
         }
     }
 }
