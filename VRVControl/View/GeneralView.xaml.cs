@@ -23,17 +23,17 @@ namespace VRVControl.View
     public partial class GeneralView : UserControl
     {
         // NAudio
-        MMDeviceEnumerator devEnum = new MMDeviceEnumerator();
+        public MMDeviceEnumerator devEnum = new MMDeviceEnumerator();
 
         // initialize speech recognition 
-        SpeechRecognitionEngine sre = new SpeechRecognitionEngine();
-        Choices clist = new Choices();
+        public SpeechRecognitionEngine sre = new SpeechRecognitionEngine();
+        public Choices clist = new Choices();
 
         public GeneralView()
         {
             InitializeComponent();
-            this.Loaded += new RoutedEventHandler(GeneralView_Loaded);
-        }
+            this.Loaded += new RoutedEventHandler(GeneralView_Loaded);            
+        }       
 
         private void GeneralView_Loaded(object sender, RoutedEventArgs e)
         {
@@ -137,7 +137,8 @@ namespace VRVControl.View
         {
             MMDevice defaultDevice = devEnum.GetDefaultAudioEndpoint(DataFlow.Render, Role.Multimedia);
             defaultDevice.AudioEndpointVolume.MasterVolumeLevelScalar = (float)volumeSlider.Value;
-            volumeProgressBar.Value = volumeSlider.Value;
+            volumeProgressBar.Value = volumeSlider.Value;           
         }
+       
     }
 }
