@@ -75,6 +75,7 @@ namespace VRVControl.ViewModel
         {
             MMDevice defaultDevice = devEnum.GetDefaultAudioEndpoint(DataFlow.Render, Role.Multimedia);
             defaultDevice.AudioEndpointVolume.VolumeStepUp();
+            Volume = defaultDevice.AudioEndpointVolume.MasterVolumeLevelScalar;
         }
 
         public ICommand DecVol { get; private set; }
@@ -83,6 +84,7 @@ namespace VRVControl.ViewModel
         {
             MMDevice defaultDevice = devEnum.GetDefaultAudioEndpoint(DataFlow.Render, Role.Multimedia);
             defaultDevice.AudioEndpointVolume.VolumeStepDown();
+            Volume = defaultDevice.AudioEndpointVolume.MasterVolumeLevelScalar;
         }
 
         public ICommand Mute { get; private set; }
@@ -155,5 +157,6 @@ namespace VRVControl.ViewModel
             IsEnableVoiceControlEnabled = true;
             IsDisableVoiceControlEnabled = false;
         }
+
     }
 }
