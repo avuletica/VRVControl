@@ -5,8 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:VRVControl.View"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-
+             d:DesignHeight="300" d:DesignWidth="300">   
     <Border BorderBrush="Gray" BorderThickness="1 1 0 0">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -19,19 +18,19 @@
             </Grid.RowDefinitions>
 
             <StackPanel  Grid.Column="0" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="107">
-                <RepeatButton Width = "120" Delay="500" Interval="100" Height="35" Click="bntIncVol" Content="Volume Up" Focusable="False"/>
-                <RepeatButton Width = "120" Delay="500" Interval="100" Height="35" Click="bntDecVol" Content="Volume Down" Focusable="False"/>
-                <RepeatButton Width = "120" Delay="500" Interval="100" Height="30" Click="btnMute" Content="Mute" Focusable="False"/>
+                <RepeatButton Width = "120" Delay="500" Interval="100" Height="35" Command="{Binding IncVol}" Content="Volume Up" Focusable="False" />
+                <RepeatButton Width = "120" Delay="500" Interval="100" Height="35" Command="{Binding DecVol}" Content="Volume Down" Focusable="False"/>
+                <RepeatButton Width = "120" Delay="500" Interval="100" Height="30" Command="{Binding Mute}" Content="Mute" Focusable="False"/>
             </StackPanel>
 
-            <StackPanel Grid.Column="1" HorizontalAlignment="Left" Margin="0,10,0,0">               
-                <Button x:Name="btnStartVoiceControl" Content="Enable Voice Control"  Height="35" Click="btnStartVoiceControl_Click"  Width="120"/>
-                <Button x:Name="btnStopVoiceControl" Content="Disable Voice Control"  Height="35" Width="120" Click="btnStopVoiceControl_Click" IsEnabled="False"/>
-                <Slider x:Name="volumeSlider" ValueChanged="slider_ValueChanged" Maximum="1" LargeChange="0.01" Height="21" Width="117" Margin="0, 10" />
+            <StackPanel Grid.Column="1" HorizontalAlignment="Left" Margin="0,10,0,0">
+                <Button x:Name="btnStartVoiceControl" Content="Enable Voice Control"  Height="35" Command="{Binding EnableVoiceControl}" IsEnabled="{Binding IsEnableVoiceControlEnabled}"  Width="120"/>
+                <Button x:Name="btnStopVoiceControl" Content="Disable Voice Control"  Height="35" Width="120" Command="{Binding DisableVoiceControl}" IsEnabled="{Binding IsDisableVoiceControlEnabled}" />
+                <Slider x:Name="volumeSlider" Value="{Binding Volume}" Maximum="1" LargeChange="0.01" Height="21" Width="116" Margin="0, 10" />
             </StackPanel>
 
             <Grid  Grid.ColumnSpan="2" Grid.Row="1">
-                <ProgressBar x:Name="volumeProgressBar" Value="0" Maximum="1" LargeChange="0.01" Margin="10,36,28,100"/>
+                <ProgressBar x:Name="volumeProgressBar" Value="{Binding Volume}" Maximum="1" LargeChange="0.01" Margin="10,36,28,100"/>
                 <TextBlock x:Name="textBlock" HorizontalAlignment="Right" Margin="83,16,28,23" Text="{Binding ElementName=volumeProgressBar, Path=Value, StringFormat={}{0:P2}}" />
             </Grid>
             <Label x:Name="label" Content="Volume level:" HorizontalAlignment="Left" Margin="5,12,0,0" Grid.Row="1" VerticalAlignment="Top"/>
