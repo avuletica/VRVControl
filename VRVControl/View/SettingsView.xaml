@@ -30,7 +30,7 @@
                 <Label x:Name="label1" Content="Key combination:" Margin="0,38,197,39" Width="103" HorizontalAlignment="Left" />
                 <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Text="{Binding Action}"  Width="120" Margin="157,10,0,67"/>
                 <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Text="{Binding Keybind}" Width="120" Margin="157,38,0,39"/>
-                <Button x:Name="button" Content="Apply"  VerticalAlignment="Top" Width="75" Margin="178,70,46,0" />
+                <Button x:Name="button" Content="Apply"  VerticalAlignment="Top" Width="75" Margin="202,70,22,0" />
             </Grid>
         </Grid>
     </Border>

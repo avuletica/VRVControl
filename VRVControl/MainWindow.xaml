@@ -9,11 +9,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="430" ResizeMode="CanMinimize">
     
-    <Window.InputBindings>
-        <KeyBinding Command="{Binding KeyBind}" Modifiers="Control" Key="S"/>
-        <KeyBinding Command="{Binding KeyBind}" Modifiers="Control" Key="D"/>
-    </Window.InputBindings>
-
     <Window.Resources>
         <DataTemplate DataType = "{x:Type viewModels:GeneralViewModel}">
             <views:GeneralView/>

@@ -25,7 +25,6 @@ namespace VRVControl
 
         private void OnNav(string destination)
         {
-
             switch (destination)
             {
                 case "general":
