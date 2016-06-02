@@ -59,9 +59,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BindableBase.cs" />
-    <Compile Include="MainWindowViewModel.cs" />
-    <Compile Include="RelayCommand.cs" />
+    <Compile Include="ViewModel\Navigation\BindableBase.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\Navigation\RelayCommand.cs" />
     <Compile Include="ViewModel\GeneralViewModel.cs" />
     <Compile Include="ViewModel\SettingsViewModel.cs" />
     <Compile Include="View\GeneralView.xaml.cs">
