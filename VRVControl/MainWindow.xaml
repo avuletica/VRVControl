@@ -8,6 +8,14 @@
         xmlns:viewModels = "clr-namespace:VRVControl.ViewModel" 
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="430" ResizeMode="CanMinimize">
+
+    <Window.InputBindings>
+        <KeyBinding Gesture="Ctrl+Up" Command = "local:MyCommands.IncreaseSoundCommand" />
+        <KeyBinding Gesture="Ctrl+Down" Command = "local:MyCommands.DecreaseSoundCommand" />
+        <KeyBinding Gesture="Ctrl+M" Command = "local:MyCommands.MuteSoundCommand" />
+        <KeyBinding Gesture="Ctrl+E" Command = "local:MyCommands.EnableVoiceControlCommand" />
+        <KeyBinding Gesture="Ctrl+D" Command = "local:MyCommands.DisableVoiceControlCommand" />
+    </Window.InputBindings>
     
     <Window.Resources>
         <DataTemplate DataType = "{x:Type viewModels:GeneralViewModel}">
@@ -29,6 +37,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="50" />
                 <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100" />
@@ -44,6 +53,15 @@
             Command = "{Binding NavCommand}" 
             CommandParameter = "settings" 
             Grid.Row = "1" />
+            
+            <!--
+            <Button Content = "Execute" 
+            Command = "local:MyCommands.DoSomethingCommand" 
+            CommandParameter = "settings" 
+            Grid.Row = "2" />
+            -->
+
+           
         </Grid>
 
         <Grid x:Name = "MainContent" Grid.Column = "1">
