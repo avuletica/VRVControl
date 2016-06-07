@@ -8,14 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
-    <!--
-    <UserControl.InputBindings>        
-        <KeyBinding Key="D" Modifiers="Ctrl" Command="{Binding Source={x:Static viewModels:IncreaseVolume.IncVol}}" />
-    </UserControl.InputBindings>
-    -->
-   
-    
-    <Border BorderBrush="Gray" BorderThickness="1 1 0 0">
+      <Border BorderBrush="Gray" BorderThickness="1 1 0 0">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150" />

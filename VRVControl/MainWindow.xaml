@@ -52,16 +52,7 @@
             <Button Content = "Settings" 
             Command = "{Binding NavCommand}" 
             CommandParameter = "settings" 
-            Grid.Row = "1" />
-            
-            <!--
-            <Button Content = "Execute" 
-            Command = "local:MyCommands.DoSomethingCommand" 
-            CommandParameter = "settings" 
-            Grid.Row = "2" />
-            -->
-
-           
+            Grid.Row = "1" />           
         </Grid>
 
         <Grid x:Name = "MainContent" Grid.Column = "1">
