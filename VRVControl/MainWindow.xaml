@@ -7,15 +7,7 @@
         xmlns:views = "clr-namespace:VRVControl.View" 
         xmlns:viewModels = "clr-namespace:VRVControl.ViewModel" 
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="430" ResizeMode="CanMinimize">
-
-    <Window.InputBindings>
-        <KeyBinding Gesture="Ctrl+Up" Command = "local:MyCommands.IncreaseSoundCommand" />
-        <KeyBinding Gesture="Ctrl+Down" Command = "local:MyCommands.DecreaseSoundCommand" />
-        <KeyBinding Gesture="Ctrl+M" Command = "local:MyCommands.MuteSoundCommand" />
-        <KeyBinding Gesture="Ctrl+E" Command = "local:MyCommands.EnableVoiceControlCommand" />
-        <KeyBinding Gesture="Ctrl+D" Command = "local:MyCommands.DisableVoiceControlCommand" />
-    </Window.InputBindings>
+        Title="MainWindow" Height="350" Width="430" ResizeMode="CanMinimize">    
     
     <Window.Resources>
         <DataTemplate DataType = "{x:Type viewModels:GeneralViewModel}">

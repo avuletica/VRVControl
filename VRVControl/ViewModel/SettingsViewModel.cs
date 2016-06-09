@@ -1,5 +1,7 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using VRVControl.Model;
 
 namespace VRVControl.ViewModel
@@ -8,29 +10,22 @@ namespace VRVControl.ViewModel
     {
         public SettingsViewModel()
         {
-            this.UserSettingsList = new ObservableCollection<UserSettings>()
-            {
-                new UserSettings("Volume up", "Shift + Up"),
-                new UserSettings("Volume down", "Shift + Down"),
-                new UserSettings("Mute", "Shift + M"),
-                new UserSettings("Enable Voice Control", "Ctrl + E"),
-                new UserSettings("Desable Voice Control", "Ctrl + D"),
-            };
-            this.SelectedAction = this.UserSettingsList.First();
+            this.Commands = (Application.Current as App).CommandDescriptions;
+            this.SelectedCommand = this.Commands.First();
         }
 
-        private UserSettings selectedItem;
-        public UserSettings SelectedAction
+        private CommandDescription selectedCommand;
+        public CommandDescription SelectedCommand
         {
-            get { return this.selectedItem; }
+            get { return this.selectedCommand; }
             set
             {
-                this.selectedItem = value;
-                this.OnPropertyChanged(nameof(this.SelectedAction));
+                this.selectedCommand = value;
+                this.OnPropertyChanged(nameof(this.SelectedCommand));
             }
         }
 
-        public ObservableCollection<UserSettings> UserSettingsList { get; private set; }
+        public List<CommandDescription> Commands { get; private set; }
     }
-    
+
 }

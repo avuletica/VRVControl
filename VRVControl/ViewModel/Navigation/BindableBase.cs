@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace VRVControl
 {
-    class BindableBase : INotifyPropertyChanged
+    public class BindableBase : INotifyPropertyChanged
     {
         protected virtual void SetProperty<T>(ref T member, T val,
            [CallerMemberName] string propertyName = null)

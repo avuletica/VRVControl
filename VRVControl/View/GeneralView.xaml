@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
-      <Border BorderBrush="Gray" BorderThickness="1 1 0 0">
+    <Border BorderBrush="Gray" BorderThickness="1 1 0 0">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150" />
@@ -20,14 +20,14 @@
             </Grid.RowDefinitions>
 
             <StackPanel  Grid.Column="0" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="107">
-                <RepeatButton Width = "120" Delay="500" Interval="100" Height="35" Command = "root:MyCommands.IncreaseSoundCommand" Content="Volume Up" Focusable="False" />
-                <RepeatButton Width = "120" Delay="500" Interval="100" Height="35" Command = "root:MyCommands.DecreaseSoundCommand" Content="Volume Down" Focusable="False"/>
-                <RepeatButton Width = "120" Delay="500" Interval="100" Height="30" Command = "root:MyCommands.MuteSoundCommand" Content="Mute" Focusable="False"/>
+                <RepeatButton Width = "120" Delay="500" Interval="100" Height="35" Content="Volume Up" />
+                <RepeatButton Width = "120" Delay="500" Interval="100" Height="35" Content="Volume Down" />
+                <RepeatButton Width = "120" Delay="500" Interval="100" Height="30" Content="Mute" />
             </StackPanel>
 
             <StackPanel Grid.Column="1" HorizontalAlignment="Left" Margin="0,10,0,0">
-                <Button x:Name="btnStartVoiceControl" Content="Enable Voice Control"  Height="35" Command = "root:MyCommands.EnableVoiceControlCommand"  Width="120" />
-                <Button x:Name="btnStopVoiceControl" Content="Disable Voice Control"  Height="35" Width="120" Command = "root:MyCommands.DisableVoiceControlCommand" />
+                <Button x:Name="btnStartVoiceControl" Content="Enable Voice Control"  Height="35" Width="120" />
+                <Button x:Name="btnStopVoiceControl" Content="Disable Voice Control"  Height="35" Width="120"  />
                 <Slider x:Name="volumeSlider" Value="{Binding Volume}" Maximum="1" LargeChange="0.01" Height="21" Width="116" Margin="0, 10" />
             </StackPanel>
 

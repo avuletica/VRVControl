@@ -1,8 +1,11 @@
 ﻿using NAudio.CoreAudioApi;
 using System;
+using System.Collections.Generic;
+using System.Configuration;
 using System.Speech.Recognition;
 using System.Windows;
 using System.Windows.Input;
+using VRVControl.Model;
 
 namespace VRVControl
 {
@@ -14,27 +17,58 @@ namespace VRVControl
         // initialize speech recognition 
         public SpeechRecognitionEngine sre = new SpeechRecognitionEngine();
         public Choices clist = new Choices();
-    
+
         // NAudio device enumerator
         public MMDeviceEnumerator devEnum = new MMDeviceEnumerator();
 
+        public List<CommandDescription> CommandDescriptions = new List<CommandDescription>();
+        public List<GestureCommand> Commands = new List<GestureCommand>();
+
         public App()
         {
-            var incVolBinding = new CommandBinding(MyCommands.IncreaseSoundCommand, IncreaseSound, CanIncreaseSound);
-            var decVolBinding = new CommandBinding(MyCommands.DecreaseSoundCommand, DecreaseSound, CanDecreaseSound);
-            var muteSoundBinding = new CommandBinding(MyCommands.MuteSoundCommand, MuteSound, CanMuteSound);
-            var enableVoiceControlBinding = new CommandBinding(MyCommands.EnableVoiceControlCommand, EnableVoiceControl,
-                CanEnableVoiceControl);
-            var disableVoiceControlBinding = new CommandBinding(MyCommands.DisableVoiceControlCommand, DisableVoiceControl,
-                CanDisableVoiceControl);
+            CommandDescriptions.Add(new CommandDescription(CommandType.IncreaseVolume, "Increase Volume", Key.Up, ModifierKeys.Control));
+            CommandDescriptions.Add(new CommandDescription(CommandType.DecreaseVolume, "Decrease Volume", Key.Down, ModifierKeys.Control));
+            CommandDescriptions.Add(new CommandDescription(CommandType.MuteSound, "Mute sound", Key.M, ModifierKeys.Control));
+            CommandDescriptions.Add(new CommandDescription(CommandType.EnableVoiceControl, "Enables voice control", Key.E, ModifierKeys.Control));
+            CommandDescriptions.Add(new CommandDescription(CommandType.DisableVoiceControl, "Disables voice control", Key.D, ModifierKeys.Control));
 
-            // Register CommandBinding for all windows.
-            CommandManager.RegisterClassCommandBinding(typeof(Window), incVolBinding);
-            CommandManager.RegisterClassCommandBinding(typeof(Window), decVolBinding);
-            CommandManager.RegisterClassCommandBinding(typeof(Window), muteSoundBinding);
-            CommandManager.RegisterClassCommandBinding(typeof(Window), enableVoiceControlBinding);
-        }    
-                
+            foreach (var commandDescription in this.CommandDescriptions)
+            {
+                var command = new GestureCommand(commandDescription);
+                this.Commands.Add(command);
+
+                switch (commandDescription.Type)
+                {
+                    case CommandType.IncreaseVolume:
+                        RegisterCommand(command, IncreaseSound, CanIncreaseSound);
+                        break;
+                    case CommandType.DecreaseVolume:
+                        RegisterCommand(command, DecreaseSound, CanDecreaseSound);
+                        break;
+                    case CommandType.MuteSound:
+                        RegisterCommand(command, MuteSound, CanMuteSound);
+                        break;
+                    case CommandType.EnableVoiceControl:
+                        RegisterCommand(command, EnableVoiceControl, CanEnableVoiceControl);
+                        break;
+                    case CommandType.DisableVoiceControl:
+                        RegisterCommand(command, DisableVoiceControl, CanDisableVoiceControl);
+                        break;
+                    default:
+                        break;
+                }           
+            }        
+        }
+
+        private void RegisterCommand(GestureCommand command, ExecutedRoutedEventHandler commandFunction,CanExecuteRoutedEventHandler CanDoCommand)
+        {
+            CommandManager.RegisterClassCommandBinding
+            (
+                typeof(Window),
+                new CommandBinding(command, commandFunction, CanDoCommand)
+            );
+        }
+
         private void IncreaseSound(object sender, ExecutedRoutedEventArgs e)
         {
             MMDevice defaultDevice = devEnum.GetDefaultAudioEndpoint(DataFlow.Render, Role.Multimedia);
@@ -43,7 +77,7 @@ namespace VRVControl
 
         private void CanIncreaseSound(object sender, CanExecuteRoutedEventArgs e)
         {
-           e.CanExecute = true;
+            e.CanExecute = true;
         }
 
         private void DecreaseSound(object sender, ExecutedRoutedEventArgs e)
@@ -63,7 +97,7 @@ namespace VRVControl
         }
 
         private void EnableVoiceControl(object sender, ExecutedRoutedEventArgs e)
-        {            
+        {
             clist.Add(new string[] { "Increase sound", "Decrease sound", "Mute", "Close" });
             Grammar gr = new Grammar(new GrammarBuilder(clist));
 
@@ -128,8 +162,8 @@ namespace VRVControl
 
         private void DisableVoiceControl(object sender, ExecutedRoutedEventArgs e)
         {
-            sre.RecognizeAsyncStop();            
-        }        
-        
+            sre.RecognizeAsyncStop();
+        }
+
     }
 }
