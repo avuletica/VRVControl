@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using VRVControl.Model;
 
 namespace VRVControl.ViewModel
 {
-    class SettingsViewModel : BindableBase
+    class KeyboardViewModel : BindableBase
     {
-        public SettingsViewModel()
+        public KeyboardViewModel()
         {
             this.Commands = (Application.Current as App).CommandDescriptions;
             this.SelectedCommand = this.Commands.First();

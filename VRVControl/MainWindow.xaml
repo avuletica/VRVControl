@@ -15,7 +15,7 @@
             <views:GeneralView/>
         </DataTemplate>
 
-        <DataTemplate DataType = "{x:Type viewModels:SettingsViewModel}">
+        <DataTemplate DataType = "{x:Type viewModels:KeyboardViewModel}">
             <views:SettingsView/>
         </DataTemplate>
     </Window.Resources>
@@ -42,9 +42,9 @@
             CommandParameter = "general" 
             Grid.Row = "0" />
 
-            <Button Content = "Settings" 
+            <Button Content = "Keyboard" 
             Command = "{Binding NavCommand}" 
-            CommandParameter = "settings" 
+            CommandParameter = "keyboard" 
             Grid.Row = "1" />           
         </Grid>
 

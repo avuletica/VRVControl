@@ -12,7 +12,7 @@ namespace VRVControl.View
         {
             InitializeComponent();
 
-            this.DataContext = new SettingsViewModel();
+            this.DataContext = new KeyboardViewModel();
         }
                
     }
