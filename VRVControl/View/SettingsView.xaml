@@ -28,7 +28,12 @@
                         <GridView>
                             <GridViewColumn Header="Description" Width="150" DisplayMemberBinding="{Binding Description }" />
                             <GridViewColumn Header="Modifier" Width="75" DisplayMemberBinding="{Binding ModifierKeys, UpdateSourceTrigger=Explicit, Converter={StaticResource keyConverter} }" />
-                            <GridViewColumn Header="Key" Width="75" DisplayMemberBinding="{Binding Key,  UpdateSourceTrigger=Explicit, Converter={StaticResource keyConverter} }" />                            
+                            <GridViewColumn Header="Key" Width="100" DisplayMemberBinding="{Binding Key,  UpdateSourceTrigger=Explicit, Converter={StaticResource keyConverter} }"  />
+                            <GridView.ColumnHeaderContainerStyle>
+                                <Style TargetType="{x:Type GridViewColumnHeader}">
+                                    <Setter Property="IsEnabled" Value="False"/>
+                                </Style>
+                            </GridView.ColumnHeaderContainerStyle>
                         </GridView>
                     </ListView.View>
                 </ListView>

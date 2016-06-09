@@ -20,14 +20,14 @@
             </Grid.RowDefinitions>
 
             <StackPanel  Grid.Column="0" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="107">
-                <RepeatButton Width = "120" Delay="500" Interval="100" Height="35" Content="Volume Up" />
-                <RepeatButton Width = "120" Delay="500" Interval="100" Height="35" Content="Volume Down" />
-                <RepeatButton Width = "120" Delay="500" Interval="100" Height="30" Content="Mute" />
+                <Button Width = "120" Height="35" Content="Volume Up" />
+                <Button Width = "120" Height="35" Content="Volume Down" />
+                <Button Width = "120" Height="30" Content="Mute" />
             </StackPanel>
 
-            <StackPanel Grid.Column="1" HorizontalAlignment="Left" Margin="0,10,0,0">
-                <Button x:Name="btnStartVoiceControl" Content="Enable Voice Control"  Height="35" Width="120" />
-                <Button x:Name="btnStopVoiceControl" Content="Disable Voice Control"  Height="35" Width="120"  />
+            <StackPanel Grid.Column="1" HorizontalAlignment="Left" Margin="0,10,0,0" Width="139">
+                <Button x:Name="btnStartVoiceControl" Content="Enable Voice Control"  Height="35" />
+                <Button x:Name="btnStopVoiceControl" Content="Disable Voice Control"  Height="35"  />
                 <Slider x:Name="volumeSlider" Value="{Binding Volume}" Maximum="1" LargeChange="0.01" Height="21" Width="116" Margin="0, 10" />
             </StackPanel>
 
