@@ -70,6 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\AboutViewModel.cs" />
     <Compile Include="ViewModel\Commands\StaticCommands.cs" />
     <Compile Include="ViewModel\Converters\GestureConverter.cs" />
     <Compile Include="Model\CommandDescription.cs" />
@@ -81,6 +82,9 @@
     <Compile Include="ViewModel\GeneralViewModel.cs" />
     <Compile Include="ViewModel\KeyboardViewModel.cs" />
     <Compile Include="ViewModel\SystemViewModel.cs" />
+    <Compile Include="View\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\GeneralView.xaml.cs">
       <DependentUpon>GeneralView.xaml</DependentUpon>
     </Compile>
@@ -102,6 +106,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\GeneralView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

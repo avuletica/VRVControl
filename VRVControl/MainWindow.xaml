@@ -22,6 +22,10 @@
         <DataTemplate DataType = "{x:Type viewModels:SystemViewModel}">
             <views:SystemView/>
         </DataTemplate>
+
+        <DataTemplate DataType = "{x:Type viewModels:AboutViewModel}">
+            <views:AboutView/>
+        </DataTemplate>
     </Window.Resources>
 
     <Grid>
@@ -32,6 +36,7 @@
 
         <Grid x:Name = "NavBar"  VerticalAlignment="Top">
             <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
                 <RowDefinition Height="50" />
                 <RowDefinition Height="50" />
                 <RowDefinition Height="50" />
@@ -55,6 +60,11 @@
             Command = "{Binding NavCommand}" 
             CommandParameter = "system" 
             Grid.Row = "2" />
+
+            <Button Content = "About" 
+            Command = "{Binding NavCommand}" 
+            CommandParameter = "about" 
+            Grid.Row = "3" />
 
         </Grid>
 

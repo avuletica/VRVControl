@@ -7,7 +7,7 @@ namespace VRVControl
         private GeneralViewModel _generalViewModel = new GeneralViewModel();
         private KeyboardViewModel _keyboardViewModel = new KeyboardViewModel();
         private SystemViewModel _systemViewModel = new SystemViewModel();
-
+        private AboutViewModel _aboutViewModel = new AboutViewModel();
 
         public MainWindowViewModel()
         {
@@ -37,6 +37,9 @@ namespace VRVControl
                     break;
                 case "system":
                     CurrentViewModel = _systemViewModel;
+                    break;
+                case "about":
+                    CurrentViewModel = _aboutViewModel;
                     break;                    
             }
         }
