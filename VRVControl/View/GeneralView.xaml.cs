@@ -29,6 +29,18 @@ namespace VRVControl.View
         {
             MMDevice defaultDevice = devEnum.GetDefaultAudioEndpoint(DataFlow.Render, Role.Multimedia);
             volumeSlider.Value = defaultDevice.AudioEndpointVolume.MasterVolumeLevelScalar;
-        }       
+        }
+
+        private void btnStartVoiceControl_Click(object sender, RoutedEventArgs e)
+        {
+            btnStartVoiceControl.IsEnabled = false;
+            btnStopVoiceControl.IsEnabled = true;
+        }
+
+        private void btnStopVoiceControl_Click(object sender, RoutedEventArgs e)
+        {
+            btnStartVoiceControl.IsEnabled = true;
+            btnStopVoiceControl.IsEnabled = false;
+        }
     }
 }

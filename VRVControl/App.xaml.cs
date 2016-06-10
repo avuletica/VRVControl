@@ -6,6 +6,7 @@ using System.Speech.Recognition;
 using System.Windows;
 using System.Windows.Input;
 using VRVControl.Model;
+using VRVControl.ViewModel.Commands;
 
 namespace VRVControl
 {
@@ -26,6 +27,19 @@ namespace VRVControl
 
         public App()
         {
+            // Static binding for buttons in general view
+            List<CommandBinding> binding = new List<CommandBinding>();
+
+            binding.Add(new CommandBinding(StaticCommands.IncreaseSoundCommand, IncreaseSound, CanIncreaseSound));
+            binding.Add(new CommandBinding(StaticCommands.DecreaseSoundCommand, DecreaseSound, CanDecreaseSound));
+            binding.Add(new CommandBinding(StaticCommands.MuteSoundCommand, MuteSound, CanMuteSound));
+            binding.Add(new CommandBinding(StaticCommands.EnableVoiceControlCommand, EnableVoiceControl, CanEnableVoiceControl));
+            binding.Add(new CommandBinding(StaticCommands.DisableVoiceControlCommand, DisableVoiceControl, CanDisableVoiceControl));
+            
+            foreach (var item in binding)            
+                CommandManager.RegisterClassCommandBinding(typeof(Window), item);                       
+
+            // Default application level key bindings
             CommandDescriptions.Add(new CommandDescription(CommandType.IncreaseVolume, "Increase Volume", Key.Up, ModifierKeys.Control));
             CommandDescriptions.Add(new CommandDescription(CommandType.DecreaseVolume, "Decrease Volume", Key.Down, ModifierKeys.Control));
             CommandDescriptions.Add(new CommandDescription(CommandType.MuteSound, "Mute sound", Key.M, ModifierKeys.Control));
@@ -60,6 +74,7 @@ namespace VRVControl
             }        
         }
 
+        // Register CommandBinding for all windows.
         private void RegisterCommand(GestureCommand command, ExecutedRoutedEventHandler commandFunction,CanExecuteRoutedEventHandler CanDoCommand)
         {
             CommandManager.RegisterClassCommandBinding

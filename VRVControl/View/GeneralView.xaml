@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:VRVControl.View"
+             xmlns:commands="clr-namespace:VRVControl.ViewModel.Commands"
              xmlns:root="clr-namespace:VRVControl"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
@@ -20,14 +21,14 @@
             </Grid.RowDefinitions>
 
             <StackPanel  Grid.Column="0" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="107">
-                <Button Width = "120" Height="35" Content="Volume Up" />
-                <Button Width = "120" Height="35" Content="Volume Down" />
-                <Button Width = "120" Height="30" Content="Mute" />
+                <Button Width = "120" Height="35" Content="Volume Up" Command="commands:StaticCommands.IncreaseSoundCommand" />
+                <Button Width = "120" Height="35" Content="Volume Down" Command="commands:StaticCommands.DecreaseSoundCommand"/>
+                <Button Width = "120" Height="30" Content="Mute" Command="commands:StaticCommands.MuteSoundCommand" />
             </StackPanel>
 
             <StackPanel Grid.Column="1" HorizontalAlignment="Left" Margin="0,10,0,0" Width="139">
-                <Button x:Name="btnStartVoiceControl" Content="Enable Voice Control"  Height="35" />
-                <Button x:Name="btnStopVoiceControl" Content="Disable Voice Control"  Height="35"  />
+                <Button x:Name="btnStartVoiceControl" Content="Enable Voice Control" Command="commands:StaticCommands.EnableVoiceControlCommand"  Height="35" Click="btnStartVoiceControl_Click" />
+                <Button x:Name="btnStopVoiceControl" Content="Disable Voice Control" Command="commands:StaticCommands.DisableVoiceControlCommand"  Height="35" Click="btnStopVoiceControl_Click" IsEnabled="False"  />
                 <Slider x:Name="volumeSlider" Value="{Binding Volume}" Maximum="1" LargeChange="0.01" Height="21" Width="116" Margin="0, 10" />
             </StackPanel>
 

@@ -27,15 +27,14 @@ namespace VRVControl
 
         private KeyBinding createKeyBinding(GestureCommand command)
         {
-            var keyboardBinding = new KeyBinding();
-            //commandDescription.ModifierKeys
+            var keyboardBinding = new KeyBinding();            
 
             keyboardBinding.Command = command;
 
             Binding keyBinding = new Binding("Key");
 
             keyBinding.Source = command.CommandDescription;
-            keyBinding.Mode = BindingMode.TwoWay; //Prominit u one-way
+            keyBinding.Mode = BindingMode.OneWay; 
             keyBinding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
             BindingOperations.SetBinding(keyboardBinding, KeyBinding.KeyProperty, keyBinding);
 
@@ -43,7 +42,7 @@ namespace VRVControl
             Binding modifiersBinding = new Binding("ModifierKeys");
 
             modifiersBinding.Source = command.CommandDescription;
-            modifiersBinding.Mode = BindingMode.TwoWay; //Prominit u one-way
+            modifiersBinding.Mode = BindingMode.OneWay;
             modifiersBinding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
             BindingOperations.SetBinding(keyboardBinding, KeyBinding.ModifiersProperty, modifiersBinding);
 

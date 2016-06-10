@@ -70,10 +70,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\Commands\StaticCommands.cs" />
     <Compile Include="ViewModel\Converters\GestureConverter.cs" />
     <Compile Include="Model\CommandDescription.cs" />
     <Compile Include="ViewModel\Converters\KeyConverter.cs" />
-    <Compile Include="ViewModel\GestureCommand.cs" />
+    <Compile Include="ViewModel\Commands\GestureCommand.cs" />
     <Compile Include="ViewModel\Navigation\BindableBase.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\Navigation\RelayCommand.cs" />
