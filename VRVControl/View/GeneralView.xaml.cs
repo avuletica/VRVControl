@@ -3,6 +3,9 @@ using System.Windows.Controls;
 using NAudio.CoreAudioApi;
 using System.Speech.Recognition;
 using VRVControl.ViewModel;
+using Microsoft.Win32;
+using System.Reflection;
+using System;
 
 namespace VRVControl.View
 {
@@ -22,7 +25,7 @@ namespace VRVControl.View
         {
             InitializeComponent();
             this.DataContext = new GeneralViewModel();
-            this.Loaded += new RoutedEventHandler(GeneralView_Loaded);
+            this.Loaded += new RoutedEventHandler(GeneralView_Loaded);            
         }
 
         private void GeneralView_Loaded(object sender, RoutedEventArgs e)
@@ -41,6 +44,6 @@ namespace VRVControl.View
         {
             btnStartVoiceControl.IsEnabled = true;
             btnStopVoiceControl.IsEnabled = false;
-        }
+        }        
     }
 }

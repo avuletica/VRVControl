@@ -80,11 +80,15 @@
     <Compile Include="ViewModel\Navigation\RelayCommand.cs" />
     <Compile Include="ViewModel\GeneralViewModel.cs" />
     <Compile Include="ViewModel\KeyboardViewModel.cs" />
+    <Compile Include="ViewModel\SystemViewModel.cs" />
     <Compile Include="View\GeneralView.xaml.cs">
       <DependentUpon>GeneralView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\KeyboardView.xaml.cs">
       <DependentUpon>KeyboardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SystemView.xaml.cs">
+      <DependentUpon>SystemView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -103,6 +107,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\KeyboardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SystemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

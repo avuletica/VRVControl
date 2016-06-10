@@ -5,7 +5,9 @@ namespace VRVControl
     class MainWindowViewModel : BindableBase
     {
         private GeneralViewModel _generalViewModel = new GeneralViewModel();
-        private KeyboardViewModel _settingsViewModel = new KeyboardViewModel();
+        private KeyboardViewModel _keyboardViewModel = new KeyboardViewModel();
+        private SystemViewModel _systemViewModel = new SystemViewModel();
+
 
         public MainWindowViewModel()
         {
@@ -30,10 +32,12 @@ namespace VRVControl
                 case "general":
                     CurrentViewModel = _generalViewModel;
                     break;
-                case "keyboard":
-                default:
-                    CurrentViewModel = _settingsViewModel;
+                case "keyboard":               
+                    CurrentViewModel = _keyboardViewModel;
                     break;
+                case "system":
+                    CurrentViewModel = _systemViewModel;
+                    break;                    
             }
         }
     }

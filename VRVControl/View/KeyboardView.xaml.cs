@@ -6,9 +6,9 @@ namespace VRVControl.View
     /// <summary>
     /// Interaction logic for SettingsView.xaml
     /// </summary>
-    public partial class SettingsView : UserControl
+    public partial class KeyboardView : UserControl
     {
-        public SettingsView()
+        public KeyboardView()
         {
             InitializeComponent();
 
