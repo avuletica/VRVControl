@@ -1,7 +1,6 @@
 ﻿using NAudio.CoreAudioApi;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Speech.Recognition;
 using System.Windows;
 using System.Windows.Input;

@@ -1,8 +1,4 @@
 ﻿using NAudio.CoreAudioApi;
-using System;
-using System.Speech.Recognition;
-using System.Windows;
-using System.Windows.Input;
 
 namespace VRVControl.ViewModel
 {

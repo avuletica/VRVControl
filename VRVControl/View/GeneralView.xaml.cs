@@ -3,9 +3,6 @@ using System.Windows.Controls;
 using NAudio.CoreAudioApi;
 using System.Speech.Recognition;
 using VRVControl.ViewModel;
-using Microsoft.Win32;
-using System.Reflection;
-using System;
 
 namespace VRVControl.View
 {
