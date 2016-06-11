@@ -37,8 +37,11 @@ namespace VRVControl.ViewModel
             {
                 RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
                 Assembly curAssembly = Assembly.GetExecutingAssembly();
-                key.SetValue(curAssembly.GetName().Name, curAssembly.Location);
-                
+
+                if (isStartUpChecked)                     
+                    key.SetValue(curAssembly.GetName().Name, curAssembly.Location);                
+                else                
+                    key.DeleteValue(curAssembly.GetName().Name);          
             }
             catch (Exception ex)
             {

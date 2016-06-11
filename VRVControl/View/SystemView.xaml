@@ -3,7 +3,7 @@
         <Grid>
             <StackPanel Margin="10,0,0,75">
                 <CheckBox x:Name="notificationOnVolumeChange" FontSize="16" Content="Show notification on volume change" Margin="0,10,0,0" ToolTip="Currently not working!" />
-                <CheckBox x:Name="launchAppOnStartup" FontSize="16" Content="Launch application on startup" Margin="0,10,0,15" HorizontalAlignment="Left" Width="235" Command="{Binding StartUpCommand}" IsChecked="{Binding IsStartUpChecked}" />
+                <CheckBox x:Name="launchAppOnStartup" FontSize="16" Content="Launch application on startup" Margin="0,10,0,15" HorizontalAlignment="Left" Width="235" Command="{Binding LaunchAppOnStartup}" IsChecked="{Binding IsStartUpChecked}" />
                 <CheckBox x:Name="startAppMinimized" FontSize="16" Content="Start application minimized" Margin="0,0,0,15" HorizontalAlignment="Left" Width="229" ToolTip="Currently not working, for dev: mahapps package fix" />
                 <CheckBox x:Name="checkBox" FontSize="16" Content="Check for updates on startup" ToolTip="Currently not working!" HorizontalAlignment="Left" VerticalAlignment="Top" />
             </StackPanel>
