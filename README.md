@@ -11,4 +11,5 @@ VRVControl is WPF (MVVM) application for controlling master sound with click, ke
 
 # Requirements
 * .NET framework 4.5.2 (Windows Vista SP2 and onwards)
-* English speech installed for voice recognition
+* English speech for voice recognition
+* UI toolkit for WPF [mahapps](http://mahapps.com/)
